@@ -9,14 +9,17 @@ class IndexPage {
         this.paginationBlok = element(by.id('pagination'));
     }
 
-    getAppNameHeader(){
+    getAppNameHeader() {
         return this.appNameHeader.getText();
     }
 
-    getComputersCount(){
+    getComputersCount() {
         let computersAmHeader = computersAmountHeader.getText();
-        computersAmHeader.replace(/[^\/\d]/g,'');
+        computersAmHeader.replace(/[^\/\d]/g, '');
         return computersAmHeader;
     }
+
+
 }
+
 module.exports = IndexPage;
