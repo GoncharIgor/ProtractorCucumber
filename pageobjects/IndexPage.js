@@ -1,5 +1,11 @@
+'use strict';
+
+let BasePage = require('./BasePage');
+
 class IndexPage {
     constructor() {
+       // super(rootElement);
+
         this.appNameHeader = $('.fill>a');
         this.computersAmountHeader = $('#main>h1');
         this.filterInputField = element(by.id('searchbox'));
@@ -10,7 +16,10 @@ class IndexPage {
     }
 
     getAppNameHeader() {
-        return this.appNameHeader.getText();
+        return this.appNameHeader.getText().then(function (text) {
+                return text;
+            }
+        );
     }
 
     getComputersCount() {
