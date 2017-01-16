@@ -27,11 +27,15 @@ class AddNewComputerPage extends BasePage {
     }
 
     addComputer(name, introducedDate, discontinuedDate, company) {
+        this.fillInAllFields(name, introducedDate, discontinuedDate, company);
+        this.createThisComputerButton.click();
+    }
+
+    fillInAllFields(name, introducedDate, discontinuedDate, company){
         this.computerNameInputField.sendKeys(name);
         this.introducedDateInputField.sendKeys(introducedDate);
         this.discontinuedDateInputField.sendKeys(discontinuedDate);
         element(by.cssContainingText('option', company)).click();
-        this.createThisComputerButton.click();
     }
 
     clickCancelButton() {
