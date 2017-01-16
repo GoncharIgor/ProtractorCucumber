@@ -2,7 +2,6 @@
 
 class BasePage {
     constructor() {
-        this.sssss = 'ssss';
     }
 
     isElementVisible(element) {

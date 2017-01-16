@@ -14,9 +14,9 @@ class AddNewComputerPage extends BasePage {
         this.discontinuedDateInputField = element(by.id('discontinued'));
         this.discontinuedDateInputFieldLabel = $("label[for='discontinued']");
         this.companySelectBox = element(by.id('company'));
-        this.companySelectBoxLabel =  $("label[for='company']");
-        this.createThisComputerButton =  $('.btn.primary');
-        this.cancelButton =  element(by.linkText('Cancel'));
+        this.companySelectBoxLabel = $("label[for='company']");
+        this.createThisComputerButton = $('.btn.primary');
+        this.cancelButton = element(by.linkText('Cancel'));
     }
 
     getPageHeader() {
@@ -24,6 +24,15 @@ class AddNewComputerPage extends BasePage {
                 return text;
             }
         );
+    }
+
+    addComputer(name, introducedDate, discontinuedDate, company) {
+        this.computerNameInputField.sendKeys(name);
+        this.introducedDateInputField.sendKeys(introducedDate);
+        this.discontinuedDateInputField.sendKeys(discontinuedDate);
+        element(by.cssContainingText('option', company)).click();
+        this.createThisComputerButton.click();
+        browser.sleep(4000);
     }
 
 }

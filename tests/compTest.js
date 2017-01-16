@@ -1,7 +1,8 @@
 var IndexPage = require('./../pageobjects/IndexPage');
 var AddNewComputerPage = require('./../pageobjects/AddNewComputerPage');
+var StringUtils = require('./../utils/StringUtils');
 
-describe('Computer-database mainPage layout verification', function () {
+/*describe('Computer-database mainPage layout verification', function () {
     let indexPageObject = new IndexPage();
     beforeEach(function () {
         browser.ignoreSynchronization = true;
@@ -90,4 +91,37 @@ describe('Add new computer page layout verification', function () {
         expect(addNewComputerPageObject.discontinuedDateInputFieldLabel.isDisplayed()).toBe(true);
     });
 
+    it('Add new computer page should have visible Select company selectbox', function () {
+        expect(addNewComputerPageObject.companySelectBox.isDisplayed()).toBe(true);
+    });
+
+    it('Add new computer page should have visible label for Select company selectbox', function () {
+        expect(addNewComputerPageObject.companySelectBoxLabel.isDisplayed()).toBe(true);
+    });
+
+    it('Add new computer page should have visible Create this computer button', function () {
+        expect(addNewComputerPageObject.createThisComputerButton.isDisplayed()).toBe(true);
+    });
+
+    it('Add new computer page should have visible Cancel button', function () {
+        expect(addNewComputerPageObject.cancelButton.isDisplayed()).toBe(true);
+    });
+
+});*/
+
+
+describe('Add new computer functionality works correctly', function () {
+    let indexPageObject = new IndexPage();
+    let addNewComputerPageObject = new AddNewComputerPage();
+
+    beforeEach(function () {
+        browser.ignoreSynchronization = true;
+        browser.get('http://computer-database.herokuapp.com/computers');
+        indexPageObject.clickAddNewComputerButton();
+    });
+
+    it('Computer should be added after filling all the inputs', function () {
+        let name = StringUtils.generateRandomString(10);
+        addNewComputerPageObject.addComputer(name, '2017-01-14', '2017-01-15', 'Sony');
+    });
 });
