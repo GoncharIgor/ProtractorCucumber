@@ -2,9 +2,9 @@
 
 let BasePage = require('./BasePage');
 
-class IndexPage {
+class IndexPage extends BasePage {
     constructor() {
-       // super(rootElement);
+        super();
 
         this.appNameHeader = $('.fill>a');
         this.computersAmountHeader = $('#main>h1');
@@ -22,12 +22,28 @@ class IndexPage {
         );
     }
 
+    getTableColumnsAmount() {
+        return this.tableHeaderColumns.count().then(function (count) {
+            return count;
+        });
+
+    }
+
+
     getComputersCount() {
         let computersAmHeader = computersAmountHeader.getText();
         computersAmHeader.replace(/[^\/\d]/g, '');
         return computersAmHeader;
     }
 
+    isHeaderVisible() {
+        return super.isElementVisible(this.appNameHeader);
+    }
+
+    //Overrides
+    isElementVisible(element) {
+        super.isElementVisible(element);
+    }
 
 }
 

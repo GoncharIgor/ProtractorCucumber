@@ -1,8 +1,12 @@
 'use strict';
 
 class BasePage {
-    constructor(rootElement) {
-        this.rootElement = rootElement;
+    constructor() {
+        this.sssss = 'ssss';
+    }
+
+    isElementVisible(element) {
+        return element.isDisplayed();
     }
 }
 
