@@ -34,6 +34,9 @@ class AddNewComputerPage extends BasePage {
         this.createThisComputerButton.click();
     }
 
+    clickCancelButton() {
+        this.cancelButton.click();
+    }
 }
 
 module.exports = AddNewComputerPage;

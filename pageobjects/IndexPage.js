@@ -36,7 +36,7 @@ class IndexPage extends BasePage {
     }
 
     navigateToEditComputerPage(){
-        computerNamesInTheTable.get(0).click();
+        this.computerNamesInTheTable.get(0).click();
     }
 
     clickAddNewComputerButton() {

@@ -9,7 +9,7 @@ class EditComputerPage extends BasePage {
     }
 
     deleteComputer(){
-        this.deleteComputer().click();
+        this.deleteThisComputerButton.click();
     }
 
 }
