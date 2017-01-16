@@ -32,7 +32,6 @@ class AddNewComputerPage extends BasePage {
         this.discontinuedDateInputField.sendKeys(discontinuedDate);
         element(by.cssContainingText('option', company)).click();
         this.createThisComputerButton.click();
-        browser.sleep(4000);
     }
 
 }

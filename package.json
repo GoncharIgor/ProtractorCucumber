@@ -23,6 +23,6 @@
     "wd-start": "node ./node_modules/protractor/bin/webdriver-manager start",
     "wd-status": "webdriver-manager status",
     "wd-clean": "webdriver-manager clean",
-    "test": "protractor conf.js"
+    "test": "protractor config/comp.js"
   }
 }

@@ -123,5 +123,8 @@ describe('Add new computer functionality works correctly', function () {
     it('Computer should be added after filling all the inputs', function () {
         let name = StringUtils.generateRandomString(10);
         addNewComputerPageObject.addComputer(name, '2017-01-14', '2017-01-15', 'Sony');
+        expect(indexPageObject.messageWarning.isDisplayed()).toBe(true);
+        indexPageObject.isComputerInfoEqualsExpected(name);
+
     });
 });

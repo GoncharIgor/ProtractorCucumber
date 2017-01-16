@@ -13,6 +13,11 @@ class IndexPage extends BasePage {
         this.addNewComputerButton = element(by.id('add'));
         this.tableHeaderColumns = element.all(by.tagName('th'));
         this.paginationBlok = element(by.id('pagination'));
+        this.messageWarning = $('.alert-message.warning');
+        this.computerNamesInTheTable = element.all(by.css('.computers.zebra-striped>tbody>tr>td>a'));
+        this.computerIntroducedDateInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(2)');
+        this.computerDiscontinuedDateInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(3)');
+        this.computerCompanyNameInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(4)');
     }
 
     getPageHeader() {
@@ -33,22 +38,37 @@ class IndexPage extends BasePage {
         this.addNewComputerButton.click();
     }
 
-
-
-
     getComputersCount() {
         let computersAmHeader = computersAmountHeader.getText();
         computersAmHeader.replace(/[^\/\d]/g, '');
         return computersAmHeader;
     }
 
-    isHeaderVisible() {
-        return super.isElementVisible(this.appNameHeader);
-    }
+    findComputerInTheTable(computerName) {
+        this.filterInputField.sendKeys(computerName);
+        this.filterSubmitButton.click();
+    };
 
-    //Overrides
-    isElementVisible(element) {
-        super.isElementVisible(element);
+    isComputerInfoEqualsExpected(computerName) {
+        this.findComputerInTheTable(computerName);
+
+        var computerInfo = [];
+        this.computerNamesInTheTable.get(0).getText().then(function (text) {
+            computerInfo.push(text);
+            return text;
+        });
+        this.computerIntroducedDateInTheTable.getText().then(function (text) {
+            computerInfo.push(text);
+            return text;
+        });
+        this.computerDiscontinuedDateInTheTable.getText().then(function (text) {
+            computerInfo.push(text);
+            return text;
+        });
+        this.computerCompanyNameInTheTable.getText().then(function (text) {
+            computerInfo.push(text);
+            return text;
+        });
     }
 
 }
