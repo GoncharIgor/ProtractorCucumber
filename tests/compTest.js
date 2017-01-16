@@ -219,7 +219,7 @@ var StringUtils = require('./../utils/StringUtils');
 
  });*/
 
-describe('Add new computer validation functionality works correctly', function () {
+/*describe('Add new computer validation functionality works correctly', function () {
     let indexPageObject = new IndexPage();
     let addNewComputerPageObject = new AddNewComputerPage();
 
@@ -236,7 +236,11 @@ describe('Add new computer validation functionality works correctly', function (
     it('Computer should not be added if Computer name field is empty', function () {
         addNewComputerPageObject.addComputer('', introducedDate, discontinuedDate, company);
 
+        addNewComputerPageObject.getPageHeader().then(function (pageHeader) {
+            expect(pageHeader).toEqual('Add a computer');
+        });
 
+        expect((addNewComputerPageObject.emptyComputerNameErrorNotification).getAttribute('class')).toMatch('clearfix error');
     });
+});*/
 
-});

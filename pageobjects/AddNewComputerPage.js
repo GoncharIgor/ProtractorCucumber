@@ -17,6 +17,7 @@ class AddNewComputerPage extends BasePage {
         this.companySelectBoxLabel = $("label[for='company']");
         this.createThisComputerButton = $('.btn.primary');
         this.cancelButton = element(by.linkText('Cancel'));
+        this.emptyComputerNameErrorNotification = $('fieldset div:nth-child(1)');
     }
 
     getPageHeader() {
