@@ -15,7 +15,7 @@ class IndexPage extends BasePage {
         this.paginationBlok = element(by.id('pagination'));
     }
 
-    getAppNameHeader() {
+    getPageHeader() {
         return this.appNameHeader.getText().then(function (text) {
                 return text;
             }
@@ -28,6 +28,12 @@ class IndexPage extends BasePage {
         });
 
     }
+
+    clickAddNewComputerButton() {
+        this.addNewComputerButton.click();
+    }
+
+
 
 
     getComputersCount() {

@@ -13,7 +13,7 @@ describe('Computer-database mainPage layout verification', function () {
     });
 
     it('App should have expected header', function () {
-        indexPageObject.getAppNameHeader().then(function (pageHeader) {
+        indexPageObject.getPageHeader().then(function (pageHeader) {
             expect(pageHeader).toEqual("Play sample application — Computer database");
         });
     });
@@ -39,22 +39,55 @@ describe('Computer-database mainPage layout verification', function () {
     });
     it('App should have table with 4 columns', function () {
         indexPageObject.getTableColumnsAmount().then(function (tableColumnsAmount) {
-            expect(tableColumnsAmount).toEqual(5);
+            expect(tableColumnsAmount).toEqual(4);
         });
     });
 
 });
 
 
-/*
- describe('Computers Demo App', function () {
- let indexPageObject = new IndexPage();
- let addNewComputerPageObject = new AddNewComputerPage();
+describe('Add new computer page layout verification', function () {
+    let indexPageObject = new IndexPage();
+    let addNewComputerPageObject = new AddNewComputerPage();
 
- beforeEach(function () {
- browser.ignoreSynchronization = true;
- browser.get('http://computer-database.herokuapp.com/computers');
- });
+    beforeEach(function () {
+        browser.ignoreSynchronization = true;
+        browser.get('http://computer-database.herokuapp.com/computers');
+        indexPageObject.clickAddNewComputerButton();
+    });
 
- });
- */
+    it('Add new computer page should have a title', function () {
+        expect(browser.getTitle()).toEqual('Computers database');
+    });
+
+    it('Add new computer page should have expected header', function () {
+        addNewComputerPageObject.getPageHeader().then(function (pageHeader) {
+            expect(pageHeader).toEqual('Add a computer');
+        });
+    });
+
+    it('Add new computer page should have visible computer name input', function () {
+        expect(addNewComputerPageObject.computerNameInputField.isDisplayed()).toBe(true);
+    });
+
+    it('Add new computer page should have visible label for computer name input', function () {
+        expect(addNewComputerPageObject.computerNameInputFieldLabel.isDisplayed()).toBe(true);
+    });
+
+    it('Add new computer page should have visible Introduced date input', function () {
+        expect(addNewComputerPageObject.introducedDateInputField.isDisplayed()).toBe(true);
+    });
+
+    it('Add new computer page should have visible label for Introduced date input', function () {
+        expect(addNewComputerPageObject.introducedDateInputFieldLabel.isDisplayed()).toBe(true);
+    });
+
+    it('Add new computer page should have visible Discontinued date input', function () {
+        expect(addNewComputerPageObject.discontinuedDateInputField.isDisplayed()).toBe(true);
+    });
+
+    it('Add new computer page should have visible label for Discontinued date input', function () {
+        expect(addNewComputerPageObject.discontinuedDateInputFieldLabel.isDisplayed()).toBe(true);
+    });
+
+});
