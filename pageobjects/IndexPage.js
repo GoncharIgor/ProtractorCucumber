@@ -1,6 +1,7 @@
 'use strict';
 
 let BasePage = require('./BasePage');
+//var StringUtils = require('./../utils/StringUtils');
 
 class IndexPage extends BasePage {
     constructor() {
@@ -34,14 +35,19 @@ class IndexPage extends BasePage {
 
     }
 
+    navigateToEditComputerPage(){
+        computerNamesInTheTable.get(0).click();
+    }
+
     clickAddNewComputerButton() {
         this.addNewComputerButton.click();
     }
 
     getComputersCount() {
-        let computersAmHeader = computersAmountHeader.getText();
-        computersAmHeader.replace(/[^\/\d]/g, '');
-        return computersAmHeader;
+        return this.computersAmountHeader.getText().then(function (text) {
+            text = text.replace(/[^\/\d]/g, '');
+            return text;
+        });
     }
 
     findComputerInTheTable(computerName) {
@@ -49,27 +55,29 @@ class IndexPage extends BasePage {
         this.filterSubmitButton.click();
     };
 
-    isComputerInfoEqualsExpected(computerName) {
-        this.findComputerInTheTable(computerName);
+    isComputerInfoInTheTableEqualsExpected(initialComputerData) {
+        this.findComputerInTheTable(initialComputerData[0]);
 
-        var computerInfo = [];
+        var actualComputerInfo = [];
         this.computerNamesInTheTable.get(0).getText().then(function (text) {
-            computerInfo.push(text);
+            actualComputerInfo.push(text);
             return text;
         });
         this.computerIntroducedDateInTheTable.getText().then(function (text) {
-            computerInfo.push(text);
+            actualComputerInfo.push(text);
             return text;
         });
         this.computerDiscontinuedDateInTheTable.getText().then(function (text) {
-            computerInfo.push(text);
+            actualComputerInfo.push(text);
             return text;
         });
         this.computerCompanyNameInTheTable.getText().then(function (text) {
-            computerInfo.push(text);
+            actualComputerInfo.push(text);
             return text;
         });
     }
+
+    //TODO return the array
 
 }
 
