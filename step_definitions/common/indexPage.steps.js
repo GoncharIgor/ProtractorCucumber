@@ -10,7 +10,8 @@ module.exports = function () {
     });
 
     this.Then(/^I see that (.*) page is is opened$/, function (pageName) {
-// "([^\"]*)"
+        var actualUrl = browser.getCurrentUrl();
+        this.expect('http://computer-database.herokuapp.com/computers').to.eventually.be.eql(browser.getCurrentUrl());
     });
-
+// "([^\"]*)"
 };

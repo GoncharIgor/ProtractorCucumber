@@ -11,6 +11,13 @@ class BasePage {
     clickButton(buttonName){
         buttonName.click();
     }
+
+    getPageHeader(pageHeaderElement) {
+        return pageHeaderElement.getText().then(function (text) {
+                return text;
+            }
+        );
+    }
 }
 
 module.exports = BasePage;

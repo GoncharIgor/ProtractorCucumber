@@ -21,13 +21,6 @@ class IndexPage extends BasePage {
         this.computerCompanyNameInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(4)');
     }
 
-    getPageHeader() {
-        return this.appNameHeader.getText().then(function (text) {
-                return text;
-            }
-        );
-    }
-
     getTableColumnsAmount() {
         return this.tableHeaderColumns.count().then(function (count) {
             return count;

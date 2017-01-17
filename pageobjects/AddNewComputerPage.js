@@ -20,13 +20,6 @@ class AddNewComputerPage extends BasePage {
         this.emptyComputerNameErrorNotification = $('fieldset div:nth-child(1)');
     }
 
-    getPageHeader() {
-        return this.addComputerHeader.getText().then(function (text) {
-                return text;
-            }
-        );
-    }
-
     addComputer(name, introducedDate, discontinuedDate, company) {
         this.fillInAllFields(name, introducedDate, discontinuedDate, company);
         this.createThisComputerButton.click();
