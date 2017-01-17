@@ -24,5 +24,8 @@
     "wd-status": "webdriver-manager status",
     "wd-clean": "webdriver-manager clean",
     "test": "protractor config/comp.js"
+  },
+  "devDependencies": {
+    "protractor-cucumber-framework": "^0.6.0"
   }
 }
