@@ -40,3 +40,27 @@ Feature: Computer Creating
     And I click 'Add new Computer' button
     When I add new computer
     Then I see new computer is added to the table on the index page
+
+  @regression
+  Scenario: Computers total amount should be increased by 1 after adding new computer
+    Given I navigate to index page
+    And I get current amount of computers in the table
+    When I add new computer
+    Then I see that amount of computers was "increased" by 1
+
+  @regression
+  Scenario: Computers total amount should be decreased by 1 after deleting the computer
+    Given I navigate to index page
+    And I get current amount of computers in the table
+    When I find computer in the table by "name"
+    And I navigate to edit computer page
+    And I delete the computer
+    Then I see that amount of computers was "decreased" by 1
+
+  @regression
+  Scenario: Check Add new computer functionality
+    Given I navigate to AddNewComputer page
+    When I add new computer
+    And Click 'Cancel' button
+    Then I see that AddNewComputer page is opened
+    And Message warning is displayed
