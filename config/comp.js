@@ -7,17 +7,15 @@ exports.config = _.merge(baseConfig.config, {
 
     cucumberOpts: {
         require: './../step_definitions',
-         tags: false,
+        tags: false,
         format: 'pretty',
     },
     specs: ['./../features'],
 
     params: {
-        // portalName: 'retail-banking-demo/',
         cucumberStepTimeout: 200 * 1000
     },
     onPrepare: function () {
         browser.ignoreSynchronization = true;
     }
-
 });
