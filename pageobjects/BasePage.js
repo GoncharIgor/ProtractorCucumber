@@ -2,6 +2,7 @@
 
 class BasePage {
     constructor() {
+        this.appNameHeader = $('.fill>a');
     }
 
     isElementVisible(element) {
@@ -12,8 +13,8 @@ class BasePage {
         buttonName.click();
     }
 
-    getPageHeader(pageHeaderElement) {
-        return pageHeaderElement.getText().then(function (text) {
+    getPageHeader() {
+        return this.appNameHeader.getText().then(function (text) {
                 return text;
             }
         );

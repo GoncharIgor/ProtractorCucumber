@@ -7,7 +7,7 @@ exports.config = _.merge(baseConfig.config, {
 
     cucumberOpts: {
         require: './../step_definitions',
-        // tags: ['~@ignore', '~@dev'],
+         tags: false,
         format: 'pretty',
     },
     specs: ['./../features'],

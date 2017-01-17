@@ -6,8 +6,6 @@ let BasePage = require('./BasePage');
 class IndexPage extends BasePage {
     constructor() {
         super();
-
-        this.appNameHeader = $('.fill>a');
         this.computersAmountHeader = $('#main>h1');
         this.filterInputField = element(by.id('searchbox'));
         this.filterSubmitButton = element(by.id('searchsubmit'));
