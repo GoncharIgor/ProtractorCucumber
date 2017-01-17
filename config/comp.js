@@ -3,5 +3,18 @@ var _ = require('lodash'),
 
 exports.config = _.merge(baseConfig.config, {
     baseUrl: 'http://computer-database.herokuapp.com/computers',
-    specs: ['../tests/compTest.js']
+    seleniumAddress: 'http://localhost:4444/wd/hub',
+
+    cucumberOpts: {
+        require: './../step_definitions',
+        // tags: ['~@ignore', '~@dev'],
+        format: 'pretty',
+    },
+    specs: ['./../features'],
+
+    params: {
+       // portalName: 'retail-banking-demo/',
+        cucumberStepTimeout: 200 * 1000
+    }
+
 });

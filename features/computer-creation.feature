@@ -4,11 +4,10 @@ Feature: Computer Creating
   I want to create a new entry in the computer list
 
   Background:
-    Given I navigate to home page
+    Given I navigate to index page
 
-  @smoke
   Scenario: Check computer creating form
-    And I click 'Add new Computer' button
+    When I click 'Add new Computer' button
     Then I see that Add new computer page is is opened
     And I see that 'Computer name' field is enabled
     And I see that 'Computer name' field is empty
