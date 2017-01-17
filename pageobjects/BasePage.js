@@ -7,6 +7,10 @@ class BasePage {
     isElementVisible(element) {
         return element.isDisplayed();
     }
+
+    clickButton(buttonName){
+        buttonName.click();
+    }
 }
 
 module.exports = BasePage;

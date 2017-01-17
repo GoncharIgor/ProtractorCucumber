@@ -1,7 +1,12 @@
-module.exports = function () {
+'use strict';
 
-    this.When(/^for login widget I login as "([^"]*)" username and "([^"]*)" password$/, function (userName, password) {
-        return this.getWidget('login').login(userName, password);
+var IndexPage = require('./../../pageobjects/IndexPage');
+
+module.exports = function () {
+    let indexPageObject = new IndexPage();
+
+    this.When(/^I click (.*) button$/, function (buttonName) {
+        return indexPageObject.clickButton(indexPageObject.buttonName);
     });
 
 };

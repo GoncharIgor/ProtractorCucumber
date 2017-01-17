@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = function () {
-
     this.Given(/^I navigate to (.*) page$/, function (url) {
         if (url === 'index') {
             url = 'http://computer-database.herokuapp.com/computers';
@@ -13,5 +12,5 @@ module.exports = function () {
         }
         return browser.get(url);
     });
-
 };
+
