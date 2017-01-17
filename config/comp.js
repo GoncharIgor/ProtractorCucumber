@@ -13,8 +13,11 @@ exports.config = _.merge(baseConfig.config, {
     specs: ['./../features'],
 
     params: {
-       // portalName: 'retail-banking-demo/',
+        // portalName: 'retail-banking-demo/',
         cucumberStepTimeout: 200 * 1000
+    },
+    onPrepare: function () {
+        browser.ignoreSynchronization = true;
     }
 
 });
