@@ -13,7 +13,7 @@ class IndexPage extends BasePage {
         this.tableHeaderColumns = element.all(by.tagName('th'));
         this.paginationBlok = element(by.id('pagination'));
         this.messageWarning = $('.alert-message.warning');
-        this.computerNamesInTheTable = element.all(by.css('.computers.zebra-striped>tbody>tr>td>a'));
+        this.computerNameInTheTable = $('tbody>tr>td>a');
         this.computerIntroducedDateInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(2)');
         this.computerDiscontinuedDateInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(3)');
         this.computerCompanyNameInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(4)');
@@ -23,11 +23,10 @@ class IndexPage extends BasePage {
         return this.tableHeaderColumns.count().then(function (count) {
             return count;
         });
-
     }
 
-    navigateToEditComputerPage(){
-        this.computerNamesInTheTable.get(0).click();
+    navigateToEditComputerPage() {
+        this.computerNameInTheTable.click();
     }
 
     clickAddNewComputerButton() {
@@ -42,12 +41,13 @@ class IndexPage extends BasePage {
     }
 
     findComputerInTheTable(computerName) {
+        this.filterInputField.clear();
         this.filterInputField.sendKeys(computerName);
         this.filterSubmitButton.click();
+        return this;
     };
 
-    isComputerInfoInTheTableEqualsExpected(initialComputerData) {
-        this.findComputerInTheTable(initialComputerData[0]);
+    isComputerInfoInTheTableEqualsExpected(name, introducedDate, discontinuedDate, company) {
 
         var actualComputerInfo = [];
         this.computerNamesInTheTable.get(0).getText().then(function (text) {

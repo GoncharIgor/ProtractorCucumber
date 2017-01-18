@@ -16,7 +16,7 @@ describe('Computer-database mainPage layout verification', function () {
     });
 
     it('App should have expected header', function () {
-        indexPageObject.getPageHeader().then(function (pageHeader) {
+        indexPageObject.getAppHeader().then(function (pageHeader) {
             expect(pageHeader).toEqual("Play sample application — Computer database");
         });
     });
@@ -64,7 +64,7 @@ describe('Add new computer page layout verification', function () {
     });
 
     it('Add new computer page should have expected header', function () {
-        addNewComputerPageObject.getPageHeader().then(function (pageHeader) {
+        addNewComputerPageObject.getAppHeader().then(function (pageHeader) {
             expect(pageHeader).toEqual('Add a computer');
         });
     });
@@ -179,7 +179,7 @@ describe('Add/delete computer functionality', function () {
 
     });
 
-    it('Computers total amount should not change id computer adding is canceled', function () {
+    it('Computers total amount should not change if computer adding is canceled', function () {
         let initialTotal = indexPageObject.getComputersCount().then(function (computersCount) {
         });
 
@@ -211,7 +211,7 @@ describe('Add new computer functionality works correctly', function () {
         addNewComputerPageObject.fillInAllFields(name, introducedDate, discontinuedDate, company);
         addNewComputerPageObject.clickCancelButton();
 
-        indexPageObject.getPageHeader().then(function (pageHeader) {
+        indexPageObject.getAppHeader().then(function (pageHeader) {
             expect(pageHeader).toEqual("Play sample application — Computer database");
         });
         //expect(indexPageObject.messageWarning.isDisplayed()).toBe(false);
@@ -239,7 +239,7 @@ describe('Add new computer validation functionality works correctly', function (
     it('Computer should not be added if Computer name field is empty', function () {
         addNewComputerPageObject.addComputer('', introducedDate, discontinuedDate, company);
 
-        addNewComputerPageObject.getPageHeader().then(function (pageHeader) {
+        addNewComputerPageObject.getAppHeader().then(function (pageHeader) {
             expect(pageHeader).toEqual('Add a computer');
         });
 
@@ -264,7 +264,7 @@ describe('Computer sorting functionality', function () {
     it('Computer should not be added if Computer name field is empty', function () {
         addNewComputerPageObject.addComputer('', introducedDate, discontinuedDate, company);
 
-        addNewComputerPageObject.getPageHeader().then(function (pageHeader) {
+        addNewComputerPageObject.getAppHeader().then(function (pageHeader) {
             expect(pageHeader).toEqual('Add a computer');
         });
 
