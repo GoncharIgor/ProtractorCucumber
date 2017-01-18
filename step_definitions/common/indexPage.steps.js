@@ -42,8 +42,11 @@ module.exports = function () {
     this.When(/^I find computer by name: "([^"]*)"$/, (name) =>
         indexPageObject.findComputerInTheTable(name));
 
-    this.Then(/^I see that its data corresponds to: "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/, (name, introducedDate, discontinuedDate, company) =>
-        expect(indexPageObject.isComputerInfoInTheTableEqualsExpected()).to.eventually.be.true);
+    this.Then(/^I see that its data corresponds to: "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/, function (name, introducedDate, discontinuedDate, company) {
+       // let expectedArray = [name, introducedDate, discontinuedDate, company];
+        expect(indexPageObject.isComputerInfoInTheTableEqualsExpected(name, introducedDate, discontinuedDate, company)).to.eventually.be.true;
+    });
+
 
     this.Then(/^I delete computer with name: "([^"]*)"$/, function (name) {
         indexPageObject.findComputerInTheTable(name).navigateToEditComputerPage();

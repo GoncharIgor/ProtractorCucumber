@@ -1,6 +1,7 @@
 'use strict';
 
 let BasePage = require('./BasePage');
+let StringUtils = require('./../utils/StringUtils');
 
 class IndexPage extends BasePage {
     constructor() {
@@ -48,23 +49,26 @@ class IndexPage extends BasePage {
 
     isComputerInfoInTheTableEqualsExpected(name, introducedDate, discontinuedDate, company) {
 
-        var actualComputerInfo = [];
-        this.computerNamesInTheTable.get(0).getText().then(function (text) {
-            actualComputerInfo.push(text);
-            return text;
+        let expectedComputerInfo = [name, introducedDate, discontinuedDate, company];
+        let actualComputerInfo = [];
+
+        return protractor.promise.all([
+            this.computerNameInTheTable.getText().then((text) => actualComputerInfo.push(text)),
+            this.computerIntroducedDateInTheTable.getText().then((text) => actualComputerInfo.push(text)),
+            this.computerDiscontinuedDateInTheTable.getText().then((text) => actualComputerInfo.push(text)),
+            this.computerCompanyNameInTheTable.getText().then((text) => actualComputerInfo.push(text))
+        ]).then(() => {
+            return StringUtils.arraysEqual(expectedComputerInfo, actualComputerInfo)
         });
-        this.computerIntroducedDateInTheTable.getText().then(function (text) {
-            actualComputerInfo.push(text);
-            return text;
-        });
-        this.computerDiscontinuedDateInTheTable.getText().then(function (text) {
-            actualComputerInfo.push(text);
-            return text;
-        });
-        this.computerCompanyNameInTheTable.getText().then(function (text) {
-            actualComputerInfo.push(text);
-            return text;
-        });
+
+        /*return protractor.promise.consume(function* () {
+         let actualComputerInfo = [];
+         actualComputerInfo.push(yield this.computerNameInTheTable.getText());
+         actualComputerInfo.push(yield this.computerIntroducedDateInTheTable.getText());
+         actualComputerInfo.push(yield this.computerDiscontinuedDateInTheTable.getText());
+         actualComputerInfo.push(yield this.computerCompanyNameInTheTable.getText());
+         return actualComputerInfo;
+         },this)*/
     }
 
     //TODO return the array
