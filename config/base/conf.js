@@ -1,7 +1,6 @@
 'use strict';
 
 exports.config = {
-    //framework: 'jasmine',
     seleniumArgs: ['-browserTimeout=60'],
     ignoreProtectedModeSettings: true,
     capabilities: {'browserName': 'chrome'},

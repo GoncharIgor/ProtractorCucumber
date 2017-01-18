@@ -10,7 +10,7 @@ exports.config = _.merge(baseConfig.config, {
         tags: false,
         format: 'pretty',
     },
-    specs: ['./../features/computer-creation.feature'],
+    specs: ['./../features'],
 
     params: {
         cucumberStepTimeout: 200 * 1000
