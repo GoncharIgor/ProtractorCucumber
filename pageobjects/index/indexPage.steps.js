@@ -11,6 +11,8 @@ var expect = chai.expect;
 let indexPageObject = new IndexPage();
 var editComputerPageObject = new EditComputerPage();
 
+this.World = require('./../../step_definitions/support/world').World;
+
 let indexPageSteps = {
 
     checkPageTitle: function (title) {
@@ -20,9 +22,13 @@ let indexPageSteps = {
     clickAddNewComputerButton: function () {
         indexPageObject.clickButton(indexPageObject.addNewComputerButton);
     },
-    ckeckIndexPageWasOpened: () => expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers'),
+    checkIndexPageWasOpened: function () {
+        expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers');
+    },
 
-    isAmountOfComputersVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true,
+    isAmountOfComputersVisible: function () {
+        expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true;
+    },
 
     isFilterInputVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.filterInputField)).to.eventually.be.true,
 

@@ -56,6 +56,15 @@ Then I see that AddNewComputer page is opened
 And I see that'Empty name' Error notification is shown
 
 
+
+@NeedsEdit
+@regression
+Scenario: Computers total amount should be increased by 1 after adding new computer
+Given I navigate to index page
+And I get current amount of computers in the table
+When I add new computer with data: "RandomName", "2017-01-14", "2017-01-15", "Sony"
+Then I see that amount of computers was "increased" by 1
+
 @NeedsEdit
 @regression
 Scenario: Computers total amount should be decreased by 1 after deleting the computer
@@ -65,14 +74,6 @@ When I find computer in the table by "RandomName"
 And I navigate to edit computer page
 And I delete computer with name: "RandomName"
 Then I see that amount of computers was "decreased" by 1
-
-@NeedsEdit
-@regression
-Scenario: Computers total amount should be increased by 1 after adding new computer
-Given I navigate to index page
-And I get current amount of computers in the table
-When I add new computer with data: "RandomName", "2017-01-14", "2017-01-15", "Sony"
-Then I see that amount of computers was "increased" by 1
 
 @NeedsEdit
 @regression

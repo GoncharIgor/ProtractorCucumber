@@ -7,7 +7,7 @@ module.exports = function () {
 
     this.When(/^I click 'Add new Computer' button$/, indexPageSteps.clickAddNewComputerButton);
 
-    this.Then(/^I see that index page is opened$/, indexPageSteps.ckeckIndexPageWasOpened);
+    this.Then(/^I see that index page is opened$/, indexPageSteps.checkIndexPageWasOpened);
 
     this.Then(/^I see that amount of computers is visible$/, indexPageSteps.isAmountOfComputersVisible);
 

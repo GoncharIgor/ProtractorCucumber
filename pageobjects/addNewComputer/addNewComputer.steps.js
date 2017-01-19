@@ -12,7 +12,8 @@ let addNewComputerPageObject = new AddNewComputerPage();
 let addNewComputerSteps = {
 
     checkPageTitle: (title) => expect(browser.getTitle()).to.eventually.equal(title),
-    ckeckAddNewComputerPageWasOpened: () => expect(addNewComputerPageObject.getPageHeader()).to.eventually.equal('Add a computer'),
+
+    checkAddNewComputerPageWasOpened: () => expect(addNewComputerPageObject.getPageHeader()).to.eventually.equal('Add a computer'),
 
     checkAppHeader: (appHeader) => expect(addNewComputerPageObject.getAppHeader()).to.eventually.equal(appHeader),
 
@@ -48,3 +49,4 @@ let addNewComputerSteps = {
     }
 };
 
+module.exports=addNewComputerSteps;

@@ -1,12 +1,12 @@
 'use strict';
 
-let addNewComputerSteps = require('./../pageobjects/index/indexPage.steps.js');
+let addNewComputerSteps = require('./../pageobjects/addNewComputer/addNewComputer.steps');
 
 module.exports = function () {
 
     this.Then(/^I see that AddNewComputer page has title: "([^"]*)"$/, addNewComputerSteps.checkPageTitle);
 
-    this.Then(/^I see that AddNewComputer page is opened$/, addNewComputerSteps.ckeckAddNewComputerPageWasOpened);
+    this.Then(/^I see that AddNewComputer page is opened$/, addNewComputerSteps.checkAddNewComputerPageWasOpened);
 
     this.Then(/^I see that App has header: "([^"]*)"$/, addNewComputerSteps.checkAppHeader);
 
