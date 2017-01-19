@@ -1,6 +1,6 @@
 'use strict';
 
-let addNewComputerSteps = require('./../../pageobjects/index/indexPage.steps.js');
+let addNewComputerSteps = require('./../pageobjects/index/indexPage.steps.js');
 
 module.exports = function () {
 

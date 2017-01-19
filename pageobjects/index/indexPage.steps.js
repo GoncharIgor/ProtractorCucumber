@@ -20,26 +20,24 @@ let indexPageSteps = {
     clickAddNewComputerButton: function () {
         indexPageObject.clickButton(indexPageObject.addNewComputerButton);
     },
-    ckeckIndexPageWasOpened: function () {
-        expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers');
-    },
-    isAmountOfComputersVisible: function () {
-        expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true;
-    },
-    isFilterInputVisible: function () {
-        expect(indexPageObject.isElementVisible(indexPageObject.filterInputField)).to.eventually.be.true;
-    },
-    isFilterSubmitButtonVisible: function () {
-        expect(indexPageObject.isElementVisible(indexPageObject.filterSubmitButton)).to.eventually.be.true;
-    },
-    isAddNewComputerButtonVisible: function () {
-        expect(indexPageObject.isElementVisible(indexPageObject.addNewComputerButton)).to.eventually.be.true;
-    },
+    ckeckIndexPageWasOpened: () => expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers')
+    ,
+    isAmountOfComputersVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true
+    ,
+    isFilterInputVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.filterInputField)).to.eventually.be.true
+    ,
+    isFilterSubmitButtonVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.filterSubmitButton)).to.eventually.be.true
+    ,
+    isAddNewComputerButtonVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.addNewComputerButton)).to.eventually.be.true
+    ,
+    isMessageWarningWasDisplayed: () => expect(indexPageObject.isElementVisible(indexPageObject.messageWarning)).to.eventually.be.true
+    ,
+    isMessageWarningWasNotDisplayed: () => expect(indexPageObject.isElementExist(indexPageObject.messageWarning)).to.eventually.be.false
+    ,
+    isPaginationBlockVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.paginationBlok)).to.eventually.be.true
+    ,
     checkAmountOFColumnsInTheTable: function (numberOfColumns) {
         expect(indexPageObject.getTableColumnsAmount()).to.eventually.equal(4);
-    },
-    isPaginationBlockVisible: function () {
-        expect(indexPageObject.isElementVisible(indexPageObject.paginationBlok)).to.eventually.be.true;
     },
     findComputer: function (name) {
         indexPageObject.findComputerInTheTable(name);
@@ -65,15 +63,8 @@ let indexPageSteps = {
     },
     checkAmountOfComputersInTheTableWasNotChanged: function () {
         //TODO
-    },
-
-    isMessageWarningWasDisplayed: function () {
-        expect(indexPageObject.isElementVisible(indexPageObject.messageWarning)).to.eventually.be.true;
-    },
-
-    isMessageWarningWasNotDisplayed: function () {
-        expect(indexPageObject.isElementExist(indexPageObject.messageWarning)).to.eventually.be.false;
     }
+
 };
 
 module.exports = indexPageSteps;

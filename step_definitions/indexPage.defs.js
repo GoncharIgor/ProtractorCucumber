@@ -1,6 +1,6 @@
 'use strict';
 
-let indexPageSteps = require('./../../pageobjects/index/indexPage.steps.js');
+let indexPageSteps = require('./../pageobjects/index/indexPage.steps.js');
 
 module.exports = function () {
     this.Then(/^I see that index page has title: "([^"]*)"$/, indexPageSteps.checkPageTitle);
