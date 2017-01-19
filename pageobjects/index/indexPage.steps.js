@@ -15,20 +15,13 @@ this.World = require('./../../step_definitions/support/world').World;
 
 let indexPageSteps = {
 
-    checkPageTitle: function (title) {
-        expect(browser.getTitle()).to.eventually.equal(title)
-    },
+    checkPageTitle: (title) => expect(browser.getTitle()).to.eventually.equal(title),
 
-    clickAddNewComputerButton: function () {
-        indexPageObject.clickButton(indexPageObject.addNewComputerButton);
-    },
-    checkIndexPageWasOpened: function () {
-        expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers');
-    },
+    clickAddNewComputerButton: () => indexPageObject.clickButton(indexPageObject.addNewComputerButton),
 
-    isAmountOfComputersVisible: function () {
-        expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true;
-    },
+    checkIndexPageWasOpened: () => expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers'),
+
+    isAmountOfComputersVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true,
 
     isFilterInputVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.filterInputField)).to.eventually.be.true,
 
@@ -67,6 +60,7 @@ let indexPageSteps = {
             //TODO
         }
     },
+
     checkAmountOfComputersInTheTableWasNotChanged: function () {
         //TODO
     }
