@@ -29,10 +29,6 @@ class IndexPage extends BasePage {
         this.computerNameInTheTable.click();
     }
 
-    clickAddNewComputerButton() {
-        this.addNewComputerButton.click();
-    }
-
     getComputersCount() {
         return this.computersAmountHeader.getText().then(function (text) {
             text = text.replace(/[^\/\d]/g, '');

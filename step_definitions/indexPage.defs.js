@@ -36,4 +36,6 @@ module.exports = function () {
     this.Then(/^I see that Message warning is displayed$/, indexPageSteps.isMessageWarningWasDisplayed);
 
     this.Then(/^I see that Message warning is not displayed$/, indexPageSteps.isMessageWarningWasNotDisplayed);
+
+    this.Then(/^I click ot the selected computer name$/, indexPageSteps.selectComputer);
 };

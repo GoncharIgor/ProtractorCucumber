@@ -68,8 +68,10 @@ let indexPageSteps = {
             });
 
         } else if (direction === 'decreased') {
-            let conuntRes = +that.initialComputersCount;
-            expect(+count).to.be.equal(conuntRes - 1);
+            indexPageObject.getComputersCount().then(function (count) {
+                let conuntRes = +that.initialComputersCount;
+                expect(+count).to.be.equal(conuntRes - 1);
+            });
         }
     },
 
@@ -79,6 +81,10 @@ let indexPageSteps = {
             let conuntRes = +that.initialComputersCount;
             expect(+count).to.be.equal(conuntRes);
         });
+    },
+
+    selectComputer: function () {
+        indexPageObject.navigateToEditComputerPage();
     }
 
 };

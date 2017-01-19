@@ -7,7 +7,8 @@ let navigationSteps = {
         }
         else if (url === 'AddNewComputer') {
             url = 'http://computer-database.herokuapp.com/computers/new';
-        } else {
+        }
+        else {
             throw `Given page ${url} does not exist`;
         }
         return browser.get(url);

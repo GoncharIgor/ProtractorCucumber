@@ -64,13 +64,12 @@ And I click 'Add new Computer' button
 When I add new computer with data: "RandomName", "2017-01-14", "2017-01-15", "Sony"
 Then I see that amount of computers was "increased" by 1
 
-@NeedsEdit
 @regression
 Scenario: Computers total amount should be decreased by 1 after deleting the computer
 Given I navigate to index page
 And I get current amount of computers in the table
 When I find computer by name: "RandomName"
-And I navigate to edit computer page
+And I click ot the selected computer name
 And I delete computer with name: "RandomName"
 Then I see that amount of computers was "decreased" by 1
 
