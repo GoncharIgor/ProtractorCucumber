@@ -19,7 +19,7 @@ let addNewComputerSteps = {
 
     isComputerNameFieldVisible: () => expect(addNewComputerPageObject.isElementVisible(addNewComputerPageObject.computerNameInputField)).to.eventually.be.true,
 
-    isLabelForComputerNameFieldVisible: () => expect(addNewComputerPageObject.isElementVisible(addNewComputerPageObject.computerNameInputField)).to.eventually.be.true,
+    isLabelForComputerNameFieldVisible: () => expect(addNewComputerPageObject.isElementVisible(addNewComputerPageObject.computerNameInputFieldLabel)).to.eventually.be.true,
 
     isIntroducedDateFieldVisible: () => expect(addNewComputerPageObject.isElementVisible(addNewComputerPageObject.introducedDateInputField)).to.eventually.be.true,
 

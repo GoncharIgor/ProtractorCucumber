@@ -43,26 +43,42 @@ let indexPageSteps = {
     },
     checkDataInTheTable: function (name, introducedDate, discontinuedDate, company) {
         // let expectedArray = [name, introducedDate, discontinuedDate, company];
+        // let modified = indexPageObject.isComputerInfoInTheTableEqualsExpected().then((array) => array.push(123))
         expect(indexPageObject.isComputerInfoInTheTableEqualsExpected(name, introducedDate, discontinuedDate, company)).to.eventually.be.true;
     },
     deleteComputer: function (name) {
         indexPageObject.findComputerInTheTable(name).navigateToEditComputerPage();
         editComputerPageObject.deleteComputer();
     },
+
     checkAmountOfComputersInTheTable: function () {
-        indexPageObject.getComputersCount();
+        let that = this;
+        indexPageObject.getComputersCount().then(function (count) {
+            that.initialComputersCount = count;
+            return count;
+        });
     },
 
     checkChangeOfAmountOfComputersInTheTable: function (direction, amount) {
+        let that = this;
         if (direction === 'increased') {
-            //TODO
+            indexPageObject.getComputersCount().then(function (count) {
+                let conuntRes = +that.initialComputersCount;
+                expect(+count).to.be.equal(conuntRes + 1);
+            });
+
         } else if (direction === 'decreased') {
-            //TODO
+            let conuntRes = +that.initialComputersCount;
+            expect(+count).to.be.equal(conuntRes - 1);
         }
     },
 
     checkAmountOfComputersInTheTableWasNotChanged: function () {
-        //TODO
+        let that = this;
+        indexPageObject.getComputersCount().then(function (count) {
+            let conuntRes = +that.initialComputersCount;
+            expect(+count).to.be.equal(conuntRes);
+        });
     }
 
 };
