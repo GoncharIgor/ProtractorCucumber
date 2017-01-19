@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function () {
-    this.Given(/^I navigate to (.*) page$/, function (url) {
+let navigationSteps = {
+    navigateTo: function (url) {
         if (url === 'index') {
             url = 'http://computer-database.herokuapp.com/computers';
         }
@@ -11,6 +11,7 @@ module.exports = function () {
             throw `Given page ${url} does not exist`;
         }
         return browser.get(url);
-    });
+    }
 };
 
+module.exports = navigationSteps;

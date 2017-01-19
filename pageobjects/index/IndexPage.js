@@ -1,7 +1,7 @@
 'use strict';
 
-let BasePage = require('./BasePage');
-let StringUtils = require('./../utils/StringUtils');
+let BasePage = require('./../BasePage');
+let StringUtils = require('./../../utils/StringUtils');
 
 class IndexPage extends BasePage {
     constructor() {
