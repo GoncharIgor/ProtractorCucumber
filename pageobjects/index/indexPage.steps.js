@@ -20,22 +20,22 @@ let indexPageSteps = {
     clickAddNewComputerButton: function () {
         indexPageObject.clickButton(indexPageObject.addNewComputerButton);
     },
-    ckeckIndexPageWasOpened: () => expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers')
-    ,
-    isAmountOfComputersVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true
-    ,
-    isFilterInputVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.filterInputField)).to.eventually.be.true
-    ,
-    isFilterSubmitButtonVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.filterSubmitButton)).to.eventually.be.true
-    ,
-    isAddNewComputerButtonVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.addNewComputerButton)).to.eventually.be.true
-    ,
-    isMessageWarningWasDisplayed: () => expect(indexPageObject.isElementVisible(indexPageObject.messageWarning)).to.eventually.be.true
-    ,
-    isMessageWarningWasNotDisplayed: () => expect(indexPageObject.isElementExist(indexPageObject.messageWarning)).to.eventually.be.false
-    ,
-    isPaginationBlockVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.paginationBlok)).to.eventually.be.true
-    ,
+    ckeckIndexPageWasOpened: () => expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers'),
+
+    isAmountOfComputersVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true,
+
+    isFilterInputVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.filterInputField)).to.eventually.be.true,
+
+    isFilterSubmitButtonVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.filterSubmitButton)).to.eventually.be.true,
+
+    isAddNewComputerButtonVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.addNewComputerButton)).to.eventually.be.true,
+
+    isMessageWarningWasDisplayed: () => expect(indexPageObject.isElementVisible(indexPageObject.messageWarning)).to.eventually.be.true,
+
+    isMessageWarningWasNotDisplayed: () => expect(indexPageObject.isElementExist(indexPageObject.messageWarning)).to.eventually.be.false,
+
+    isPaginationBlockVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.paginationBlok)).to.eventually.be.true,
+
     checkAmountOFColumnsInTheTable: function (numberOfColumns) {
         expect(indexPageObject.getTableColumnsAmount()).to.eventually.equal(4);
     },

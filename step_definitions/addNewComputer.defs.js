@@ -32,7 +32,7 @@ module.exports = function () {
 
     this.When(/^I add new computer with data: "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/, addNewComputerSteps.addNewComputer);
 
-    this.When(/^Click 'Cancel' button$/, addNewComputerSteps.clickCanvelButton);
+    this.When(/^Click 'Cancel' button$/, addNewComputerSteps.clickCancelButton);
 
     this.When(/^I fill all fields on AddNewComputer page with data: "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/, addNewComputerSteps.fillAllFields);
 
