@@ -1,6 +1,6 @@
 'use strict';
 
-var AddNewComputrPage = require('./../../pageobjects/AddNewComputerPage');
+var AddNewComputrPage = require('./AddNewComputerPage');
 
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');

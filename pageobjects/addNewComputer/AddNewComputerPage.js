@@ -1,6 +1,6 @@
 'use strict';
 
-let BasePage = require('./BasePage');
+let BasePage = require('./../BasePage');
 
 class AddNewComputerPage extends BasePage {
     constructor() {
