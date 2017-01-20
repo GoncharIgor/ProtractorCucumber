@@ -27,8 +27,6 @@ class StringUtils {
         }
         return true;
     }
-
 }
 
 module.exports = StringUtils;
-
