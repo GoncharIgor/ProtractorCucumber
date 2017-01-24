@@ -67,8 +67,6 @@ class IndexPage extends BasePage {
          },this)*/
     }
 
-    //TODO return the array
-
 }
 
 module.exports = IndexPage;

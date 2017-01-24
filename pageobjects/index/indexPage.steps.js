@@ -9,7 +9,7 @@ chai.use(chaiAsPromised);
 var expect = chai.expect;
 
 let indexPageObject = new IndexPage();
-var editComputerPageObject = new EditComputerPage();
+let editComputerPageObject = new EditComputerPage();
 
 this.World = require('./../../step_definitions/support/world').World;
 
