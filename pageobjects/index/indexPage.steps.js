@@ -38,7 +38,7 @@ let indexPageSteps = {
     isPaginationBlockVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.paginationBlok)).to.eventually.be.true,
 
     checkAmountOFColumnsInTheTable: function (numberOfColumns) {
-        expect(indexPageObject.getTableColumnsAmount()).to.eventually.equal(4);
+        expect(indexPageObject.getTableColumnsAmount()).to.eventually.equal(+numberOfColumns);
     },
     findComputer: function (name) {
         indexPageObject.findComputerInTheTable(name);
