@@ -38,4 +38,8 @@ module.exports = function () {
     this.Then(/^I see that Message warning is not displayed$/, indexPageSteps.isMessageWarningWasNotDisplayed);
 
     this.Then(/^I click ot the selected computer name$/, indexPageSteps.selectComputer);
+
+    this.When(/^I click 'Next' button$/, indexPageSteps.clickNextButton);
+
+    this.Then(/^Computers are displayed from "([^"]*)" to "([^"]*)"$/, indexPageSteps.isPaginationWorksCorrectly);
 };

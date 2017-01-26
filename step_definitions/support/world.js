@@ -1,7 +1,6 @@
 'use strict';
 
-let World = function World(callback) {
-
+let World = function World() {
     this.initialComputersCount = undefined;
 };
 

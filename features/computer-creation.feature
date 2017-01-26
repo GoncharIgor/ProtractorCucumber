@@ -35,6 +35,15 @@ Feature: Computer Creating
     And I see that 'Cancel' button is visible
 
   @regression
+  Scenario: Pagination should be increased after clicking next button
+    Given I navigate to index page
+    When I click 'Next' button
+    Then Computers are displayed from "11" to "20"
+    When I click 'Next' button
+    Then Computers are displayed from "21" to "30"
+
+
+  @regression
   Scenario: Computer should be added after filling all the inputs
     Given I navigate to index page
     And I click 'Add new Computer' button

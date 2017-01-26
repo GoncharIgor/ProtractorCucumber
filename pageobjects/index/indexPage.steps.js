@@ -19,6 +19,8 @@ let indexPageSteps = {
 
     clickAddNewComputerButton: () => indexPageObject.clickButton(indexPageObject.addNewComputerButton),
 
+    clickNextButton: () => indexPageObject.clickButton(indexPageObject.paginationNextButton),
+
     checkIndexPageWasOpened: () => expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers'),
 
     isAmountOfComputersVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true,
@@ -63,14 +65,14 @@ let indexPageSteps = {
         let that = this;
         if (direction === 'increased') {
             indexPageObject.getComputersCount().then(function (count) {
-                let conuntRes = +that.initialComputersCount;
-                expect(+count).to.be.equal(conuntRes + 1);
+                let countRes = +that.initialComputersCount;
+                expect(+count).to.be.equal(countRes + 1);
             });
 
         } else if (direction === 'decreased') {
             indexPageObject.getComputersCount().then(function (count) {
-                let conuntRes = +that.initialComputersCount;
-                expect(+count).to.be.equal(conuntRes - 1);
+                let countRes = +that.initialComputersCount;
+                expect(+count).to.be.equal(countRes - 1);
             });
         }
     },
@@ -78,13 +80,22 @@ let indexPageSteps = {
     checkAmountOfComputersInTheTableWasNotChanged: function () {
         let that = this;
         indexPageObject.getComputersCount().then(function (count) {
-            let conuntRes = +that.initialComputersCount;
-            expect(+count).to.be.equal(conuntRes);
+            let countRes = +that.initialComputersCount;
+            expect(+count).to.be.equal(countRes);
         });
     },
 
     selectComputer: function () {
         indexPageObject.navigateToEditComputerPage();
+    },
+
+    isPaginationWorksCorrectly: function (from, to) {
+        let expectedText = 'Displaying ' + from + ' to ' + to + ' of ';
+
+        indexPageObject.getTotalAmountOfComputersInPagination().then(function (text) {
+            expectedText += text;
+            expect(indexPageObject.getPaginationBlockText()).to.eventually.equal(expectedText);
+        });
     }
 
 };

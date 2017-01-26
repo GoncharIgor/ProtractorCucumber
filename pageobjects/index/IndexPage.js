@@ -33,10 +33,9 @@ class IndexPage extends BasePage {
         })
     }
 
-    get totalAmountOfComputersInPagination(){
+     getTotalAmountOfComputersInPagination(){
         return this.currentPaginationInfo.getText().then(function (text) {
-            text = text.split(' ');
-            return text[text.length - 1];
+            return StringUtils.splitStringIntoArrayByAndGetIndex(text, ' ', 'last');
         });
     }
 

@@ -14,6 +14,21 @@ class StringUtils {
         return text;
     }
 
+    static splitStringIntoArrayByAndGetIndex(text, by, index) {
+        let result;
+        text = text.split(by);
+
+        if (index === 'last') {
+            result = text[text.length - 1];
+        } else if (index === 'first') {
+            result = text[0];
+        } else {
+            result = text[index];
+        }
+
+        return result;
+    }
+
     static arraysEqual(a, b) {
         if (a === b) return true;
         if (a == null || b == null) return false;
