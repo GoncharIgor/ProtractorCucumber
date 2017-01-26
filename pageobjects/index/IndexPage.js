@@ -10,6 +10,8 @@ class IndexPage extends BasePage {
         this.filterInputField = element(by.id('searchbox'));
         this.filterSubmitButton = element(by.id('searchsubmit'));
         this.addNewComputerButton = element(by.id('add'));
+        this.paginationNextButton = element(by.xpath('//a[contains(text(), "Next")]'));
+        this.currentPaginationInfo = $('.current a');
         this.tableHeaderColumns = element.all(by.tagName('th'));
         this.paginationBlok = element(by.id('pagination'));
         this.messageWarning = $('.alert-message.warning');
@@ -22,6 +24,19 @@ class IndexPage extends BasePage {
     getTableColumnsAmount() {
         return this.tableHeaderColumns.count().then(function (count) {
             return count;
+        });
+    }
+
+    getPaginationBlockText(){
+        return this.currentPaginationInfo.getText().then(function (text) {
+            return text;
+        })
+    }
+
+    get totalAmountOfComputersInPagination(){
+        return this.currentPaginationInfo.getText().then(function (text) {
+            text = text.split(' ');
+            return text[text.length - 1];
         });
     }
 
