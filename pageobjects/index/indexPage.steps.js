@@ -21,6 +21,8 @@ let indexPageSteps = {
 
     clickNextButton: () => indexPageObject.clickButton(indexPageObject.paginationNextButton),
 
+    clickPreviousButton: () => indexPageObject.clickButton(indexPageObject.paginationPreviousButton),
+
     checkIndexPageWasOpened: () => expect(browser.getCurrentUrl()).to.eventually.equal('http://computer-database.herokuapp.com/computers'),
 
     isAmountOfComputersVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.computersAmountHeader)).to.eventually.be.true,
@@ -54,9 +56,8 @@ let indexPageSteps = {
     },
 
     checkAmountOfComputersInTheTable: function () {
-        let that = this;
-        indexPageObject.getComputersCount().then(function (count) {
-            that.initialComputersCount = count;
+        indexPageObject.getComputersCount().then((count)=> { //if we have arrow function, we don't need that=this, because function looses its context and this is referred to class context
+            this.initialComputersCount = count;
             return count;
         });
     },

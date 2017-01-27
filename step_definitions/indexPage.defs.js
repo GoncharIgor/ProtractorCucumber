@@ -41,5 +41,7 @@ module.exports = function () {
 
     this.When(/^I click 'Next' button$/, indexPageSteps.clickNextButton);
 
+    this.When(/^I click 'Previous' button$/, indexPageSteps.clickPreviousButton);
+
     this.Then(/^Computers are displayed from "([^"]*)" to "([^"]*)"$/, indexPageSteps.isPaginationWorksCorrectly);
 };

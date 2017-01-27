@@ -11,6 +11,7 @@ class IndexPage extends BasePage {
         this.filterSubmitButton = element(by.id('searchsubmit'));
         this.addNewComputerButton = element(by.id('add'));
         this.paginationNextButton = element(by.xpath('//a[contains(text(), "Next")]'));
+        this.paginationPreviousButton = element(by.xpath('//a[contains(text(), "Previous")]'));
         this.currentPaginationInfo = $('.current a');
         this.tableHeaderColumns = element.all(by.tagName('th'));
         this.paginationBlok = element(by.id('pagination'));
