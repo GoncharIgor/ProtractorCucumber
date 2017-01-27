@@ -72,7 +72,7 @@ Feature: Computer Creating
     And I see that'Empty name' Error notification is shown
 
 
-  @regression
+  @regression @amount
   Scenario: Computers total amount should be increased by 1 after adding new computer
     Given I navigate to index page
     And I get current amount of computers in the table
@@ -80,7 +80,7 @@ Feature: Computer Creating
     When I add new computer with data: "RandomName", "2017-01-14", "2017-01-15", "Sony"
     Then I see that amount of computers was "increased" by 1
 
-  @regression
+  @regression @amount
   Scenario: Computers total amount should be decreased by 1 after deleting the computer
     Given I navigate to index page
     And I get current amount of computers in the table
@@ -88,7 +88,7 @@ Feature: Computer Creating
     Then I see that amount of computers was "decreased" by 1
 
 
-  @regression
+  @regression @amount
   Scenario: Computers total amount should not be changed if computer adding is canceled
     Given I navigate to index page
     And I get current amount of computers in the table

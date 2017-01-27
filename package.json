@@ -23,7 +23,8 @@
     "wd-start": "node ./node_modules/protractor/bin/webdriver-manager start",
     "wd-status": "webdriver-manager status",
     "wd-clean": "webdriver-manager clean",
-    "test": "protractor config/comp.js"
+    "test": "protractor config/comp.js",
+    "test regression": "protractor config/comp.js --tags='@regression'"
   },
   "devDependencies": {
     "protractor-cucumber-framework": "^0.6.0"

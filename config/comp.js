@@ -7,6 +7,7 @@ exports.config = _.merge(baseConfig.config, {
 
     cucumberOpts: {
         require: './../step_definitions',
+        // tags: ['@regression', '@amount'],
         tags: false,
         format: 'pretty',
     },
