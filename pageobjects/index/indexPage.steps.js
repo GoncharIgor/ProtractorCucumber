@@ -39,6 +39,8 @@ let indexPageSteps = {
 
     isPaginationBlockVisible: () => expect(indexPageObject.isElementVisible(indexPageObject.paginationBlok)).to.eventually.be.true,
 
+    isPreviousButtonDisabled: () => expect(indexPageObject.isElementHasClass(indexPageObject.paginationPreviousButtonWrapper, 'disabled')).to.eventually.be.true,
+
     checkAmountOFColumnsInTheTable: function (numberOfColumns) {
         expect(indexPageObject.getTableColumnsAmount()).to.eventually.equal(+numberOfColumns);
     },

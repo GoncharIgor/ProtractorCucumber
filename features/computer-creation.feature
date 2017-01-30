@@ -43,6 +43,9 @@ Feature: Computer Creating
     Then Computers are displayed from "21" to "30"
     When I click 'Previous' button
     Then Computers are displayed from "11" to "20"
+    When I click 'Previous' button
+    Then Computers are displayed from "1" to "10"
+    And Previous button is disabled
 
 
   @regression

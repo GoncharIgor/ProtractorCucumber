@@ -18,6 +18,13 @@ class BasePage {
         buttonName.click();
     }
 
+    isElementHasClass(element, expectedClass) {
+        return element.getAttribute('class').then(function (cssValue) {
+            return cssValue.indexOf(expectedClass) >= 0;
+        })
+    }
+
+
     getPageHeader() {
         return this.addComputerHeader.getText().then(function (text) {
                 return text;

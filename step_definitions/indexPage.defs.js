@@ -44,4 +44,6 @@ module.exports = function () {
     this.When(/^I click 'Previous' button$/, indexPageSteps.clickPreviousButton);
 
     this.Then(/^Computers are displayed from "([^"]*)" to "([^"]*)"$/, indexPageSteps.isPaginationWorksCorrectly);
+
+    this.Then(/^Previous button is disabled$/, indexPageSteps.isPreviousButtonDisabled);
 };
