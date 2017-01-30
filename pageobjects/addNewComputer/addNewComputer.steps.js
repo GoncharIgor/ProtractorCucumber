@@ -39,13 +39,17 @@ let addNewComputerSteps = {
 
     isEmptyNameErrorNotificationVisible: () => expect(addNewComputerPageObject.isElementVisible(addNewComputerPageObject.emptyComputerNameErrorNotification)).to.eventually.be.true,
 
-    addNewComputer: function (name, introducedDate, discontinuedDate, company) {
+    addNewComputer: function (table) {
+        let name = table.raw()[1][0];
+        let introducedDate = table.raw()[1][1];
+        let discontinuedDate = table.raw()[1][2];
+        let company = table.raw()[1][3];
         addNewComputerPageObject.addComputer(name, introducedDate, discontinuedDate, company);
     },
     clickCancelButton: () => addNewComputerPageObject.clickCancelButton(),
 
-    fillAllFields: function (name, introducedDate, discontinuedDate, company) {
-        addNewComputerPageObject.fillInAllFields(name, introducedDate, discontinuedDate, company)
+    fillAllFields: function (table) {
+        addNewComputerPageObject.fillInAllFields(table.raw()[1][0], table.raw()[1][1], table.raw()[1][2], table.raw()[1][3])
     }
 };
 

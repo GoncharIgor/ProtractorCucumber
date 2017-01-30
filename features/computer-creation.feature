@@ -49,7 +49,9 @@ Feature: Computer Creating
   Scenario: Computer should be added after filling all the inputs
     Given I navigate to index page
     And I click 'Add new Computer' button
-    When I add new computer with data: "RandomName", "2017-01-14", "2017-01-15", "Sony"
+    When I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      | RandomName    | 2017-01-14      | 2017-01-15        | Sony    |
     Then I see that Message warning is displayed
     When I find computer by name: "RandomName"
     Then I see that its data corresponds to: "RandomName", "14 Jan 2017", "15 Jan 2017", "Sony"
@@ -58,7 +60,9 @@ Feature: Computer Creating
   @regression
   Scenario: Computer should not be added if all fields are entered but Cancel button is clicked
     Given I navigate to AddNewComputer page
-    When I fill all fields on AddNewComputer page with data: "RandomName", "2017-01-14", "2017-01-15", "Sony"
+    When I fill all fields on AddNewComputer page with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      | RandomName    | 2017-01-14      | 2017-01-15        | Sony    |
     And Click 'Cancel' button
     Then I see that index page is opened
     And I see that Message warning is not displayed
@@ -67,7 +71,9 @@ Feature: Computer Creating
   @regression
   Scenario: Computer should not be added if Computer name field is empty
     Given I navigate to AddNewComputer page
-    When I add new computer with data: "", "2017-01-14", "2017-01-15", "Sony"
+    When I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      |               | 2017-01-14      | 2017-01-15        | Sony    |
     Then I see that AddNewComputer page is opened
     And I see that'Empty name' Error notification is shown
 
@@ -77,7 +83,9 @@ Feature: Computer Creating
     Given I navigate to index page
     And I get current amount of computers in the table
     And I click 'Add new Computer' button
-    When I add new computer with data: "RandomName", "2017-01-14", "2017-01-15", "Sony"
+    When I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      | RandomName    | 2017-01-14      | 2017-01-15        | Sony    |
     Then I see that amount of computers was "increased" by 1
 
   @regression @amount

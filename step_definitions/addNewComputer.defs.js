@@ -30,11 +30,11 @@ module.exports = function () {
 
     this.Then(/^I see that 'Cancel' button is visible$/, addNewComputerSteps.isCancelButtonVisible);
 
-    this.When(/^I add new computer with data: "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/, addNewComputerSteps.addNewComputer);
+    this.When(/^I add new computer with data$/, addNewComputerSteps.addNewComputer);
 
     this.When(/^Click 'Cancel' button$/, addNewComputerSteps.clickCancelButton);
 
-    this.When(/^I fill all fields on AddNewComputer page with data: "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/, addNewComputerSteps.fillAllFields);
+    this.When(/^I fill all fields on AddNewComputer page with data$/, addNewComputerSteps.fillAllFields);
 
     this.Then(/^I see that'Empty name' Error notification is shown$/, addNewComputerSteps.isEmptyNameErrorNotificationVisible);
 

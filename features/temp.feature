@@ -49,7 +49,9 @@ Feature: Computer Creating
   Scenario: Computer should be added after filling all the inputs
     Given I navigate to index page
     And I click 'Add new Computer' button
-    When I add new computer with data: "RandomName", "2017-01-14", "2017-01-15", "Sony"
+    When I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      | RandomName    | 2017-01-14      | 2017-01-15        | Sony    |
     Then I see that Message warning is displayed
     When I find computer by name: "RandomName"
     Then I see that its data corresponds to: "RandomName", "14 Jan 2017", "15 Jan 2017", "Sony"
