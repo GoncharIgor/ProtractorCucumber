@@ -107,3 +107,12 @@ Feature: Computer Creating
     And Click 'Cancel' button
     And I get current amount of computers in the table
     Then I see that amount of computers was not changed
+
+
+  @regression
+  Scenario: Check computers are sorted correctly
+    Given I navigate to AddNewComputer page
+    When I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      |       AA        | 2017-01-14      | 2017-01-15        | Sony    |
+    And I find computer by name: "AA"
