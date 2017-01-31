@@ -1,7 +1,7 @@
 {
   "name": "igor-gonchar-test-projects",
   "version": "0.0.1",
-  "description": "0.1",
+  "description": "A test automation project for Computers Database",
   "dependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
@@ -24,7 +24,8 @@
     "wd-status": "webdriver-manager status",
     "wd-clean": "webdriver-manager clean",
     "test": "protractor config/comp.js",
-    "test regression": "protractor config/comp.js --tags='@regression'"
+    "test-regression": "protractor config/comp.js --cucumberOpts.tags @regression --disableChecks",
+    "test-amount": "protractor config/comp.js --cucumberOpts.tags @amount --disableChecks"
   },
   "devDependencies": {
     "protractor-cucumber-framework": "^0.6.0"
