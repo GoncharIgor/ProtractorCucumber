@@ -16,7 +16,8 @@
     "moment": "^2.10.6",
     "otp": "^0.1.2",
     "http-proxy": "^1.16.2",
-    "rimraf": "2.5.1"
+    "rimraf": "2.5.1",
+    "cucumberjs-allure-reporter": "^1.0.3"
   },
   "scripts": {
     "wd-update": "node ./node_modules/protractor/bin/webdriver-manager update",
