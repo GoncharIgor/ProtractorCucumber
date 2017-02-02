@@ -23,6 +23,8 @@ module.exports = function () {
 
     this.When(/^I find computer by name: "([^"]*)"$/, indexPageSteps.findComputer);
 
+    this.Then(/^I see that position of computer "([^"]*)" is "([^"]*)" in the table$/, indexPageSteps.checkComputerPosition);
+
     this.Then(/^I see that its data corresponds to: "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)"$/, indexPageSteps.checkDataInTheTable);
 
     this.Then(/^I delete computer with name: "([^"]*)"$/, indexPageSteps.deleteComputer);

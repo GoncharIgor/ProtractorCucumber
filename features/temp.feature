@@ -115,4 +115,34 @@ Feature: Computer Creating
     When I add new computer with data
       | Computer Name | Introduced Date | Discontinued Date | Company |
       |       AA        | 2017-01-14      | 2017-01-15        | Sony    |
-    And I find computer by name: "AA"
+    Then I see that position of computer "AA" is "1" in the table
+    When I click 'Add new Computer' button
+    And I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      |       a        | 2017-01-14      | 2017-01-15        | Sony    |
+    Then I see that position of computer "a" is "1" in the table
+    Then I see that position of computer "AA" is "2" in the table
+    When I click 'Add new Computer' button
+    And I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      |       AAA        | 2017-01-14      | 2017-01-15        | Sony    |
+    Then I see that position of computer "a" is "1" in the table
+    Then I see that position of computer "AA" is "2" in the table
+    Then I see that position of computer "AAA" is "3" in the table
+    When I click 'Add new Computer' button
+    And I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      |       0        | 2017-01-14      | 2017-01-15        | Sony    |
+    Then I see that position of computer "0" is "1" in the table
+    Then I see that position of computer "a" is "2" in the table
+    When I click 'Add new Computer' button
+    And I add new computer with data
+      | Computer Name | Introduced Date | Discontinued Date | Company |
+      |       -1        | 2017-01-14      | 2017-01-15        | Sony    |
+    Then I see that position of computer "-1" is "1" in the table
+    Then I see that position of computer "0" is "2" in the table
+    And I delete computer with name: "AA"
+    And I delete computer with name: "a"
+    And I delete computer with name: "AAA"
+    And I delete computer with name: "0"
+    And I delete computer with name: "-1"

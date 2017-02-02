@@ -47,9 +47,10 @@ let indexPageSteps = {
     findComputer: function (name) {
         indexPageObject.findComputerInTheTable(name);
     },
+    checkComputerPosition: function (name, position) {
+        expect(indexPageObject.checkPositionOfComputerInTheTable(name, position)).to.eventually.be.true;
+    },
     checkDataInTheTable: function (name, introducedDate, discontinuedDate, company) {
-        // let expectedArray = [name, introducedDate, discontinuedDate, company];
-        // let modified = indexPageObject.isComputerInfoInTheTableEqualsExpected().then((array) => array.push(123))
         expect(indexPageObject.isComputerInfoInTheTableEqualsExpected(name, introducedDate, discontinuedDate, company)).to.eventually.be.true;
     },
     deleteComputer: function (name) {

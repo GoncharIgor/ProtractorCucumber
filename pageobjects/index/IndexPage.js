@@ -21,6 +21,7 @@ class IndexPage extends BasePage {
         this.computerIntroducedDateInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(2)');
         this.computerDiscontinuedDateInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(3)');
         this.computerCompanyNameInTheTable = $('.computers.zebra-striped>tbody>tr>td:nth-child(4)');
+        this.allComputerNamesInTheTable = $$('tbody>tr>td>a');
     }
 
     getTableColumnsAmount() {
@@ -57,7 +58,7 @@ class IndexPage extends BasePage {
         this.filterInputField.sendKeys(computerName);
         this.filterSubmitButton.click();
         return this;
-    };
+    }
 
     isComputerInfoInTheTableEqualsExpected(name, introducedDate, discontinuedDate, company) {
 
@@ -81,6 +82,20 @@ class IndexPage extends BasePage {
          actualComputerInfo.push(yield this.computerCompanyNameInTheTable.getText());
          return actualComputerInfo;
          },this)*/
+    }
+
+    checkPositionOfComputerInTheTable(name, position) {
+        let elem;
+
+        if(position === 1){
+            elem = this.allComputerNamesInTheTable.first();
+        } else {
+            elem =  this.allComputerNamesInTheTable.get(position -1)
+        }
+
+        return elem.getText().then(function (text) {
+            return text === name;
+        });
     }
 
 }
