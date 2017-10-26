@@ -11,8 +11,8 @@ var expect = chai.expect;
 let indexPageObject = new IndexPage();
 let editComputerPageObject = new EditComputerPage();
 
-this.World = require('./../../step_definitions/support/world').World;
 
+this.World = require('./../../step_definitions/support/world').World;
 let indexPageSteps = {
 
     checkPageTitle: (title) => expect(browser.getTitle()).to.eventually.equal(title),

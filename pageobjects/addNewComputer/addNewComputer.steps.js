@@ -46,6 +46,7 @@ let addNewComputerSteps = {
         let company = table.raw()[1][3];
         addNewComputerPageObject.addComputer(name, introducedDate, discontinuedDate, company);
     },
+
     clickCancelButton: () => addNewComputerPageObject.clickCancelButton(),
 
     fillAllFields: function (table) {

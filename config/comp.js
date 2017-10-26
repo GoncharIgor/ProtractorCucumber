@@ -1,7 +1,8 @@
-var _ = require('lodash'),
-    baseConfig = require('./base/conf');
+const _ = require('lodash');
+const baseConfig = require('./base/conf');
 
-exports.config = _.merge(baseConfig.config, {
+
+const config = {
     baseUrl: 'http://computer-database.herokuapp.com/computers',
     seleniumAddress: 'http://localhost:4444/wd/hub',
 
@@ -19,4 +20,6 @@ exports.config = _.merge(baseConfig.config, {
     onPrepare: function () {
         browser.ignoreSynchronization = true;
     }
-});
+};
+
+exports.config = _.merge(baseConfig.config, config);
